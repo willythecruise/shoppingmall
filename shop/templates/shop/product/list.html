@@ -1,0 +1,55 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+<div id="sidebar">
+  <form method="get" class="searchform" action="{%url 'shop:product_search' %}">
+  {% for field in form %}
+  <input type="submit" value="Search"> {{ field }}
+  {% endfor %}
+  </form>
+  <div class="dropdown">
+    <h2>Categories</h2>
+    <!--<button onclick="dropdownmenu()" class="dropbtn"><h2>+</h2></button> -->
+    <div id="navdrop" class="dropdown-content">
+        <a  {% if not category %} class="selected" {% endif %}  href="{% url "shop:product_list" %}"> All</a>
+       {% for c in categories %}
+        <a  {% if category.slug == c.slug %} class= "selected"
+         {% endif %} href="{{ c.get_absolute_url }}"><h4>{{ c.name }}</h4></a>
+      {% endfor %}
+      </div>
+
+
+
+  </div>
+</div>
+<div id="main" class="product-list">
+  <h1>{% if category %}{{ category.name }}{% else %}Products
+    {% endif %}</h1>
+
+
+    {% for product in products %}
+    {% with product.id as id %}
+<div class="item">
+     <!--<a href="{{ product.get_absolute_url }}">
+       <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">
+     </a>  -->
+    <a id="itemname" href="{{ product.get_absolute_url }}"><h2>{{ product.name }}</h2></a>
+    <br>
+  <h4>  N {{ product.price }}</h4>
+    <form action="{% url "cart:cart_add" id "shop:product_list" %}" method="post">
+   {% csrf_token %}
+   <input type="submit" value="Add to cart">
+ {{ cart_product_form }}
+{% csrf_token %}
+   </form>
+  </div>
+  {%endwith%}
+   {% endfor %}
+
+<button type="button" class="checkoutb" name="button"><a href="{%url "cart:cart_detail"%}">Proceed to checkout</a></button>
+</div>
+
+{% endblock %}

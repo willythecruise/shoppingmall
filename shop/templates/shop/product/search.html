@@ -1,0 +1,41 @@
+
+{% extends "account/base.html" %}
+{%load static %}
+{% block title %}Search{% endblock %}
+{% block content %}
+ {% if query %}
+ <h1>Products containing "{{ query }}"<h1>
+ <h3>
+ {% with results.count as total_results %}
+ Found {{ total_results }} result{{ total_results|pluralize }}
+ {% endwith %}
+</h3>
+{% for product in results %}
+{% with product.id as id %}
+<div class="item">
+ <!--<a href="{{ product.get_absolute_url }}">
+   <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">
+ </a>  -->
+<a id="itemname" href="{{ product.get_absolute_url }}"><h2>{{ product.name }}</h2></a>
+<br>
+<h4>  N {{ product.price }}</h4>
+<form action="{% url "cart:cart_add" id "shop:product_list" %}" method="post">
+{% csrf_token %}
+<input type="submit" value="Add to cart">
+{{ cart_product_form }}
+{% csrf_token %}
+</form>
+</div>
+{%endwith%}
+{% empty %}
+ <p>There are no results for your search.</p>
+ {% endfor %}
+ <a href="{% url "shop:product_search" %}">Search again</a>
+ {% else %}
+<h1>Search for Products</h1>
+<form method="get">
+{{ form.as_p }}
+<input type="submit" value="Search">
+</form>
+{% endif %}
+{% endblock %}

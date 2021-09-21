@@ -1,0 +1,90 @@
+ {% load static %}
+<!DOCTYPE html>
+<html>
+ <head>
+
+   <style>
+     .dropdown{
+       position: relative;
+       display: block;
+       float: right;
+     }
+     .dropdown-content{
+       position: absolute;
+       z-index: 1;
+       display: block;
+       border-radius: 1.5rem;
+       background-color: #efefef;
+     }
+   </style>
+
+ <meta charset="utf-8" />
+ <title>{% block title %}My shop{% endblock %}</title>
+ <link href="{% static "css/styles.css" %}" rel="stylesheet">
+ {% if request.user.is_authenticated %}
+ <a href="{% url "account:logout" %}">Logout</a>
+ {% else %}
+  <a href="{% url "account:login" %}">Log-in</a>
+  {% endif %}
+
+ </head>
+ <body>
+ <div id="header">
+   {% if messages %}
+ <ul class="messages">
+ {% for message in messages %}
+ <li class="{{ message.tags }}">
+ {{ message|safe }}
+ <a href="#" class="close">x</a>
+ </li>
+ {% endfor %}
+ </ul>
+{% endif %}
+{% if section == "dashboard" %}
+<a href="{% url "shop:product_list" %}" class="logo">Shop</a>
+{%else%}
+<a href="{% url "account:dashboard" %}" class="logo">My Dashboard</a>
+ {% endif %}
+ <div class="cart">
+ {% with total_items=cart|length %}
+ {% if total_items > 0 %}
+ Your cart:
+ <a href="{% url "cart:cart_detail" %}">
+ {{ total_items }} item{{ total_items|pluralize }},
+ {{ cart.get_total_price }}
+ </a>
+
+ {% else %}
+ Your cart is empty.
+ {% endif %}
+ {% endwith %}
+</div>
+
+ {% block content %}
+ {% endblock %}
+ </div>
+ </body>
+ <script>
+   function dropdownmenu(){
+     document.getElementById('navdrop').classList.toggle("show");
+   }
+
+   window.onclick= function(event){
+     if (!event.target.matches('.dropbtn')) {
+       var dropdowns= document.getElementsByClassName("dropdown-content");
+       for (var i = 0; i < dropdowns.length; i++) {
+         var opendropdown= dropdowns[i];
+         if (opendropdown.classList.contains('show')) {
+           opendropdown.classList.remove('show');
+         }
+       }
+
+     }
+   }
+   document.getElementById('navdrop').addEventListener("click",function(e){
+     e.stopPropagation();
+   });
+
+
+ </script>
+</html>
