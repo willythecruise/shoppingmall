@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,7 @@ SECRET_KEY = 'django-insecure-fn6(a4(58a1il$!5w09-#0tqik%x+o0ng#ji5$+jwm01)_-mdo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["onlineshop.herokuapp.com","127.0.0.1"]
+ALLOWED_HOSTS = ["instockshop.herokuapp.com","127.0.0.1"]
 
 
 
@@ -124,6 +125,8 @@ DATABASES = {
         'PORT':'5432',
     }
 }
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 """
 username:postgres
 password: suigen12
