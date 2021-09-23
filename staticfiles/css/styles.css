@@ -1,0 +1,379 @@
+#d4ffff for home screen
+body {
+    margin:0;
+    padding:0;
+    font-family:helvetica, sans-serif;
+    height: 100%;
+}
+.dropbtn{
+  color: white;
+  background-color:#7e14de;
+  border: 0;
+  padding: 0px 20px;
+  border-radius: 1em;
+  cursor: pointer;
+}
+h1, h2, h3, h4, h5 , h6 {
+    font-family: 'Ubuntu', sans-serif; font-weight:normal;
+}
+h1{
+  font-size: 3rem;
+
+}
+#image{
+
+height:244px;
+border-radius: 68px;
+padding: 2rem;
+}
+a {
+    text-decoration:none;
+    color:#21ff7a;/*rgb(0 0 0 / 65%  */
+}
+
+a:hover {
+    color:#74f1a6;
+}
+
+.checkoutb{
+  padding: 10px;
+ position:absolute; right: 0; bottom: 0;
+  width:15%; margin: 3rem;
+  float: right;
+  background-color:#000000;
+  border: 0;
+}
+.checkoutb a {
+  color: white;
+}
+a.button, input[type="submit"] {
+    color:#fff;
+    background:#21ff7a;
+    border-radius:20px;
+    padding:10px 20px;
+    font-size:14px;
+    border:0;
+}
+
+a.button.light {
+    color:#21ff7a
+    background:#ededed;
+}
+
+.text-left {
+    text-align:left;
+}
+
+.text-right {
+    text-align:right;
+}
+
+table {
+    width:100%;
+    border-spacing:0;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    text-align:left;
+    font-size:14px;
+    padding:10px;
+    margin:0;
+}
+
+tbody tr:nth-child(odd) {
+    background:#efefef;
+}
+
+tbody tr.subtotal {
+    background:#ccc;
+}
+
+thead th, tbody tr.total {
+    background:#e0e2dd;
+    color:#000;
+    font-size: 1rem;
+    font-weight: lighter;
+
+}
+
+table.cart {
+    margin-bottom:100px;
+}
+
+table.cart img {
+    width:180px;
+}
+
+tbody td.num {
+    text-align:right;
+}
+
+td input[type="submit"] {
+    font-size:12px;
+    padding:4px 10px;
+}
+.center{
+  margin: auto;
+  width:50%;
+  padding: 50px;
+}
+form p label, form p input {
+    clear:both;
+}
+
+form p label {
+    font-size:14px;
+    padding-bottom:4px;
+}
+
+#username{
+  font-size: ;
+}
+form p input {
+    width:300px;
+    font-size:13px;
+    margin-bottom:10px;
+    padding:10px 12px;
+    border:0;
+    background:#efefef;
+    color:#666;
+    border-radius:15px;
+}
+
+ul.errorlist {
+   float:left;
+   color:#ff0000;
+   clear:both;
+   font-size:13px;
+   margin:0;
+   padding:0;
+}
+
+
+#header {
+    padding:32px  100px;
+    font-size:18px;
+    min-height: 37.5rem;
+}
+@media (min-width:768px) {
+  .checkoutb{
+  }
+
+}
+
+#subheader {
+    background:#ececec;
+    color:#444;
+    padding:15px 100px;
+    overflow:hidden;
+}
+
+#header .logo {
+    font-family: 'Ubuntu', sans-serif;
+    float:left;
+    color:#333;
+    font-size:22px;
+    margin-right:10%;
+}
+
+#subheader .cart {
+    float:right;
+    padding-top:4px;
+}
+
+#content {
+    padding:0 100px;
+    overflow:hidden;
+
+}
+
+#sidebar {
+  padding:30px 20px 0 0;
+  float:right;
+}
+
+
+#sidebar ul li a {
+    display:block;
+}
+
+ #sidebar  .selected {
+    background:#000000;
+    border-radius:20px;
+    color: white;
+}
+ .selected a {
+
+}
+.item #itemname{
+  color: black;
+}
+}
+.dropdown-content{
+  display: block;
+  position: absolute;
+  background-color: #efefef;
+  border-radius: 1.5rem;
+
+}
+.dropdown-content a{
+color: black;
+padding: 12px 16px;
+display: block;
+}
+.show{
+display: block;
+}
+
+#main {
+    float:left;
+    width: 96%;
+    overflow:hidden;
+}
+
+.product-list .item {
+    width:44%;
+    padding:20px 44px 10px 0;
+    float:left;
+    text-align:left;
+    line-height:1.2;
+}
+
+.product-list .item img {
+    width:100%;
+    margin-bottom:8px;
+}
+
+.product-detail {
+    text-align:justify;
+      min-height: 60rem;
+}
+
+.product-detail .price {
+    color:#333;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.product-detail img {
+    width:40%;
+    float:left;
+    padding:0 20px 20px 0;
+}
+
+.product-detail h1 {
+    margin-bottom:0;
+}
+
+.product-detail h2 {
+    margin-top:10px;
+}
+
+.order-form {
+    float:left;
+}
+
+.order-info {
+    float:right;
+    width:300px;
+    background:#efefef;
+    padding:10px 20px;
+    color:#333;
+    border-bottom:4px solid #5993bb;
+}
+
+.order-info h3 {
+    color:#5993bb;
+}
+
+.order-info ul li {
+    margin:0;
+    padding:0;
+    font-size:14px;
+}
+
+.order-info p {
+    font-weight:bold;
+    float:right;
+}
+
+.order-info span {
+    float:right;
+}
+
+.minus {
+    color:#dc1616;
+}
+/* NOTE: languages {
+   float:right;
+   padding-top:4px;
+   font-size:14px;
+}
+
+.languages ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    float:left;
+}
+
+.languages ul li {
+    float:left;
+    margin:0 0 0 10px;
+    font-size:14px;
+}
+
+.languages p {
+    float:left;
+    margin:0;
+}
+
+.recommendations {
+    clear:both;
+}
+
+.recommendations div {
+    float:left;
+}
+
+.recommendations img {
+    width:200px
+}
+
+.recommendations p {
+    clear:both;
+}
+
+.recommendations.cart {
+    width:60%;
+    float:left;
+    overflow:auto;
+}
+
+.recommendations.cart h3 {
+    margin-top:0;
+}
+
+.recommendations.cart .item {
+    margin-right:10px;
+}
+
+.recommendations.cart img {
+    width:120px;
+}
+ */
+.
+/* braintree hosted fields */
+form div.field {
+    font-size:13px;
+    color:#666;
+    width:300px;
+    height:22px;
+    margin-bottom:10px;
+    padding:6px 12px;
+    border:0;
+    background:#efefef;
+    color:#666;
+    border-radius:4px;
+}
